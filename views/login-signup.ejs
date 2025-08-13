@@ -1,0 +1,24 @@
+<%- include("partials/header") %>
+    <main>
+        <div class="authForm">
+            <% if (error_msg && error_msg.length > 0) { %>
+                <div class="flash-message error"><%= error_msg[0] %></div>
+            <% } %>
+            <% if (success_msg && success_msg.length > 0) { %>
+                <div class="flash-message success"><%= success_msg[0] %></div>
+            <% } %>
+
+            <h2><%= title %></h2>
+            <form action="<%= action %>" method="post">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+                
+                <button type="submit"><%= title %></button>
+            </form>
+            <p><%= altText %> <span><a href="/<%= alternative %>"><%= alt %></a></span></p>
+        </div>
+    </main>
+<%- include("partials/footer") %>

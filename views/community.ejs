@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<h1 class="community-title">Community</h1>
+
+<div class="tabs">
+    <button class="tab-btn active" data-category="motivation">Get Motivation</button>
+    <button class="tab-btn" data-category="humble">Be Humble</button>
+    <button class="tab-btn" data-category="vent">Vent Out</button>
+</div>
+
+<div class="card-container">
+    <button class="nav-btn prev"><svg width="50" height="50" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+   <path d="m9 12 4-4v8l-4-4Z"></path>
+</svg></button>
+    <div class="card" id="shoutout-card">
+        <p id="shoutout-message">Loading...</p>
+    </div>
+    <button class="nav-btn next"><svg width="50" height="50" class="menu-icon" fill="#6c6a6a" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+   <path d="m14 12-4 4V8l4 4Z"></path>
+</svg></button>
+</div>
+
+<form id="shoutout-form">
+    <input type="hidden" id="category" name="category" value="motivation">
+    <textarea id="message" name="message" placeholder="Write something inspiring..." required></textarea>
+    <button type="submit" id="submit-btn">Post Motivation</button>
+</form>
+
+<script src="/community.js"></script>
+
+<%- include('partials/footer') %>
