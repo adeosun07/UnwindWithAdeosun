@@ -5,6 +5,8 @@ import { dirname } from 'path';
 import dotenv from 'dotenv';
 
 import communityRoutes from "./routes/community.js";
+import discussionsRouter from "./routes/discussions.js";
+import { deleteOldDiscussions } from "./cleanup.js"
 
 import session from 'express-session';
 import passport from 'passport';
@@ -51,6 +53,11 @@ export function ensureAuthenticated(req, res, next) {
 
 
 app.use("/api/community", communityRoutes);
+app.use("/discussions", discussionsRouter);
+
+// Cleanup: run on startup and every 24 hours
+deleteOldDiscussions();
+setInterval(deleteOldDiscussions, 24 * 60 * 60 * 1000);
 
 app.use('/', router);
 

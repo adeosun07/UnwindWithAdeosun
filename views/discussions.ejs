@@ -1,6 +1,39 @@
-<%- include("partials/header") %>
-    <main>
-        <h2>Start a problematic discussion or join one</h2>
-        
-    </main>
-<%- include("partials/footer") %>
+<%- include('partials/header') %>
+
+<main class="discussion-container">
+  <div class="discussion-header">
+    <h1> Problematic Discussions 🔥</h1>
+  </div>
+
+  <div class="discussion-list">
+    <% discussions.forEach(discussion => { %>
+      <details class="discussion-item">
+        <summary class="discussion-title"><%= discussion.title %></summary>
+
+        <div class="messages">
+          <% discussion.messages.forEach(message => { %>
+            <p class="message"><%= message %></p>
+          <% }) %>
+        </div>
+
+        <!-- Reply Form -->
+        <form class="reply-form" data-id="<%= discussion.id %>">
+          <textarea placeholder="Write a reply..." required></textarea>
+          <button type="submit" class="btn-reply">Reply</button>
+        </form>
+      </details>
+    <% }) %>
+  </div>
+
+  <section id="start-discussion">
+    <h3> Start a Problematic Discussion 😈</h3>
+    <form id="start-discussion-form">
+      <input type="text" name="title" placeholder="Discussion title" required>
+      <textarea name="message" placeholder="Your first message..." required></textarea>
+      <button type="submit" class="btn-start">Start Discussion</button>
+    </form>
+  </section>
+</main>
+
+<script src="/discussions.js"></script>
+<%- include('partials/footer') %>

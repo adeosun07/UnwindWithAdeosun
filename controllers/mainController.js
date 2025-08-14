@@ -23,5 +23,8 @@ export default {
     },
     communityPage: (req, res) => {
         res.render("community");
+    },
+    about: (req, res) => {
+        res.render("about");
     }
 }

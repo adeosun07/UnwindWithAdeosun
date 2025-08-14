@@ -56,7 +56,8 @@ export default {
       alternative: "to_signup",
       altText: "Don't have an account yet?",
       action: "/login",
-      alt: "Signup"
+      alt: "Signup",
+      warning: ""
     });
   },
   to_signup: (req, res) =>{
@@ -65,7 +66,8 @@ export default {
       alternative: "to_login",
       altText: "Already have an account?",
       action: "/signup",
-      alt: "login"
+      alt: "login",
+      warning: "Please don't use your real name and note that forgotten password can't be recovered"
     });
   }
 };
