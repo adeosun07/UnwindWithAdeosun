@@ -1,0 +1,40 @@
+<%- include("partials/header") %>
+
+<section class="emoji-riddle">
+  <div id="start-screen">
+    <h1>Emoji Riddle Game</h1>
+    <button id="start-btn">Start</button>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div class="hud">
+      <div class="timer">Time Left: <span id="time">1:00</span></div>
+      <div class="score">Score: <span id="score">0</span></div>
+    </div>
+
+    <div class="riddle">
+      <p id="emoji" class="emoji"></p>
+      <input
+        id="answer"
+        type="text"
+        placeholder="Your answer..."
+        autocomplete="off"
+      />
+      <button id="submit-btn">Submit</button>
+    </div>
+  </div>
+
+  <!-- Result Popup -->
+  <div id="result-popup" class="modal hidden">
+    <div class="modal-content">
+      <h2>Time’s up!</h2>
+      <p>Your score: <span id="final-score">0</span></p>
+      <p id="final-message"></p>
+      <button id="restart-btn">Restart</button>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/emoji-riddles.js"></script>
+<%- include("partials/footer") %>

@@ -1,10 +1,11 @@
 import express from "express";
 import pool from "../db.js";
+import {ensureAuthenticated} from "../server.js"
 
 const router = express.Router();
 
 // GET all discussions
-router.get("/", async (req, res) => {
+router.get("/", ensureAuthenticated, async (req, res) => {
   try {
     const discussionsResult = await pool.query(
       "SELECT id, title FROM discussions ORDER BY created_at DESC"

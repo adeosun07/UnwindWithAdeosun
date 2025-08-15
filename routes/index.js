@@ -11,11 +11,12 @@ console.log(mainController.communityPage);
 router.get('/', mainController.home);
 router.get('/to_login', authController.to_login);
 router.get('/to_signup', authController.to_signup);
-router.get('/discussion', ensureAuthenticated, mainController.discussion);
+router.get('/discussions', mainController.discussion);
 router.get("/jokes", ensureAuthenticated, renderJoke);
 router.get("/joke/next", getJoke);
 router.get('/community', ensureAuthenticated, mainController.communityPage);
 router.get('/about', mainController.about);
+router.get("/games", ensureAuthenticated, mainController.games);
 
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);

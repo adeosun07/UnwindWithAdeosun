@@ -18,17 +18,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   const flashMessages = document.querySelectorAll('.flash-message');
     
-    flashMessages.forEach(msg => {
-        setTimeout(() => {
-            msg.classList.add('hide');
-            setTimeout(() => {
-                msg.style.display = 'none';
-            }, 500); // match CSS transition
-        }, 5000); // show for 5 seconds
+  flashMessages.forEach(msg => {
+      setTimeout(() => {
+          msg.classList.add('hide');
+          setTimeout(() => {
+              msg.style.display = 'none';
+          }, 500); // match CSS transition
+      }, 5000); // show for 5 seconds
+  });
+
+  const quickLinks = document.querySelectorAll(".quickLink");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-slide-up");
+      } else {
+        // Reset so it animates again when coming back into view
+        entry.target.classList.remove("animate-slide-up");
+      }
     });
+  }, {
+    threshold: 0.2 // Trigger when 20% of the element is visible
+  });
+
+  quickLinks.forEach(link => observer.observe(link));
 });
 
-function slideDown(element, duration = 400) {
+function slideDown(element, duration = 600) {
   element.style.removeProperty('display');
   let display = window.getComputedStyle(element).display;
   if (display === 'none') display = 'block';

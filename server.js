@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 
 import communityRoutes from "./routes/community.js";
 import discussionsRouter from "./routes/discussions.js";
-import { deleteOldDiscussions } from "./cleanup.js"
+import { deleteOldDiscussions } from "./cleanup.js";
+import emojiRoutes from "./routes/emoji-riddle.js";
 
 import session from 'express-session';
 import passport from 'passport';
@@ -54,6 +55,7 @@ export function ensureAuthenticated(req, res, next) {
 
 app.use("/api/community", communityRoutes);
 app.use("/discussions", discussionsRouter);
+app.use("/emoji-riddle", emojiRoutes);
 
 // Cleanup: run on startup and every 24 hours
 deleteOldDiscussions();

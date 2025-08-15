@@ -22,7 +22,7 @@ export default function initializePassport() {
                         }
                     }); 
                 } else{
-                    return done(null, false, { message: "Incorrect username or password" });
+                    return done(null, false, { message: "User not Found. Please signup" });
                 };  
             } catch (error) {
                 console.error(error);
