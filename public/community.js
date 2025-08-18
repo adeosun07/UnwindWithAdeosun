@@ -77,6 +77,5 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Load default category
     loadShoutouts(currentCategory);
 });

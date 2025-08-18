@@ -2,7 +2,7 @@ const startBtn     = document.getElementById("start-btn");
 const gameScreen   = document.getElementById("game-screen");
 const startScreen  = document.getElementById("start-screen");
 const emojiEl      = document.getElementById("emoji");
-const answerEl     = document.getElementById("answer");
+const optionsDiv   = document.getElementById("options");
 const submitBtn    = document.getElementById("submit-btn");
 const scoreEl      = document.getElementById("score");
 const timeEl       = document.getElementById("time");
@@ -11,11 +11,10 @@ const finalScoreEl = document.getElementById("final-score");
 const finalMsgEl   = document.getElementById("final-message");
 const restartBtn   = document.getElementById("restart-btn");
 
-
 let riddles = [];
 let index = 0;
 let score = 0;
-let timeLeft = 60;
+let timeLeft = 120; 
 let timerId = null;
 
 
@@ -42,24 +41,40 @@ const startTimer = () => {
 const loadRiddle = () => {
   if (!riddles.length) return;
   if (index >= riddles.length) index = 0;
-  emojiEl.textContent = riddles[index].emoji;
-  answerEl.value = "";
-  answerEl.focus();
+
+  const current = riddles[index];
+  emojiEl.innerHTML = current.question;
+  optionsDiv.innerHTML = "";
+
+  current.options.forEach((opt, i) => {
+    const label = document.createElement("label");
+    label.innerHTML = `
+      <input type="radio" name="answer" value="${opt}" required>
+      ${opt}
+    `;
+    optionsDiv.appendChild(label);
+    optionsDiv.appendChild(document.createElement("br"));
+  });
 };
 
 const submitAnswer = () => {
-  const user = clean(answerEl.value);
-  const correct = clean(riddles[index].answer);
-  if (user && user === correct) {
+  const selected = document.querySelector("input[name='answer']:checked");
+  if (!selected) return; 
+
+  const user = clean(selected.value);
+  const correct = clean(riddles[index].correct_answer);
+
+  if (user === correct) {
     score++;
     scoreEl.textContent = score;
   }
+
   index++;
   loadRiddle();
 };
 
 const endGame = () => {
-  answerEl.disabled = true;
+  optionsDiv.querySelectorAll("input").forEach(i => (i.disabled = true));
   submitBtn.disabled = true;
 
   finalScoreEl.textContent = score;
@@ -85,7 +100,7 @@ async function saveScore(points) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        game: "emoji_riddle",
+        game: "normal_riddle",
         points: points,
       }),
     });
@@ -103,7 +118,7 @@ const restart = () => {
   timeLeft = 60;
   scoreEl.textContent = "0";
   timeEl.textContent = formatTime(timeLeft);
-  answerEl.disabled = false;
+  optionsDiv.disabled = false;
   submitBtn.disabled = false;
   modal.classList.add("hidden");
   gameScreen.classList.add("hidden");
@@ -113,8 +128,25 @@ const restart = () => {
 
 startBtn.addEventListener("click", async () => {
   try {
-    const res = await axios.get("/emoji-riddle/api/riddles");
-    riddles = res.data || [];
+    const res = await axios.get("/normal-riddle/api/riddles");
+    const response = res.data || [];
+
+    riddles = (response.results || []).map(r => {
+      const options = [...r.incorrect_answers, r.correct_answer];
+
+      for (let i = options.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [options[i], options[j]] = [options[j], options[i]];
+      }
+
+      return {
+        question: r.question,
+        correct_answer: r.correct_answer,
+        options
+      };
+    });
+
+    console.log("Riddles loaded:", riddles);
   } catch (e) {
     console.error("Failed to load riddles:", e);
     riddles = [];
@@ -126,8 +158,9 @@ startBtn.addEventListener("click", async () => {
   loadRiddle();
 });
 
+
 submitBtn.addEventListener("click", submitAnswer);
-answerEl.addEventListener("keydown", (e) => {
+document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") submitAnswer();
 });
 restartBtn.addEventListener("click", restart);

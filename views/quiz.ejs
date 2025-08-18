@@ -1,0 +1,23 @@
+<%- include("partials/header") %>
+<main>
+  <section class="quiz-section">
+    <h1>🎉 Quiz Time with Adeosun 🎉</h1>
+    <button id="start-btn">Start Quiz</button>
+    <div id="quiz-container" style="display: none">
+      <p id="timer">⏳ Time Left: 2:00</p>
+      <p id="question">Loading question...</p>
+      <ul id="answers"></ul>
+      <button id="next-btn" disabled>Next Question</button>
+    </div>
+    <p id="score" style="display: none">Score: 0</p>
+  </section>
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>⏰ Time’s Up!</h2>
+      <p id="final-score"></p>
+      <button onclick="location.reload()">Play Again</button>
+    </div>
+  </div>
+</main>
+<script src="/quiz.js"></script>
+<%- include("partials/footer") %>

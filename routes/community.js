@@ -2,8 +2,6 @@ import express from "express";
 import pool from "../db.js";
 
 const router = express.Router();
-
-// Get shoutouts by category (AJAX)
 router.get("/:category", async (req, res) => {
     try {
         const category = req.params.category;
@@ -18,7 +16,6 @@ router.get("/:category", async (req, res) => {
     }
 });
 
-// Post new shoutout (AJAX)
 router.post("/", async (req, res) => {
     try {
         const { category, message } = req.body;

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuList = menu.querySelector('.menuList');
 
   menu.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent window click from firing immediately
+    e.stopPropagation();
     if (menuList.style.display === 'block') {
       slideUp(menuList, 400);
     } else {
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
           msg.classList.add('hide');
           setTimeout(() => {
               msg.style.display = 'none';
-          }, 500); // match CSS transition
-      }, 5000); // show for 5 seconds
+          }, 500);
+      }, 5000);
   });
 
   const quickLinks = document.querySelectorAll(".quickLink");
@@ -34,12 +34,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         entry.target.classList.add("animate-slide-up");
       } else {
-        // Reset so it animates again when coming back into view
         entry.target.classList.remove("animate-slide-up");
       }
     });
   }, {
-    threshold: 0.2 // Trigger when 20% of the element is visible
+    threshold: 0.2
   });
 
   quickLinks.forEach(link => observer.observe(link));

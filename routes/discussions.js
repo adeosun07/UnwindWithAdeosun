@@ -3,8 +3,6 @@ import pool from "../db.js";
 import {ensureAuthenticated} from "../server.js"
 
 const router = express.Router();
-
-// GET all discussions
 router.get("/", ensureAuthenticated, async (req, res) => {
   try {
     const discussionsResult = await pool.query(
@@ -29,7 +27,6 @@ router.get("/", ensureAuthenticated, async (req, res) => {
   }
 });
 
-// POST: Start a new discussion
 router.post("/start", express.json(), async (req, res) => {
   const { title, message } = req.body;
 
@@ -38,14 +35,12 @@ router.post("/start", express.json(), async (req, res) => {
   }
 
   try {
-    // 1. Insert discussion
     const result = await pool.query(
       "INSERT INTO discussions (title) VALUES ($1) RETURNING id",
       [title]
     );
     const discussionId = result.rows[0].id;
 
-    // 2. Insert first message
     await pool.query(
       "INSERT INTO discussion_messages (discussion_id, message) VALUES ($1, $2)",
       [discussionId, message]
@@ -58,7 +53,6 @@ router.post("/start", express.json(), async (req, res) => {
   }
 });
 
-// POST: Add a reply
 router.post("/reply", express.json(), async (req, res) => {
   const { discussion_id, message } = req.body;
 

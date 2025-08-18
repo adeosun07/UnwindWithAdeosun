@@ -1,79 +1,80 @@
 <%- include("partials/header") %>
-    <main>
-            <% if (success_msg && success_msg.length > 0) { %>
-                <div class="flash-message success"><%= success_msg[0] %></div>
-            <% } %>
-        <section class="dailyFunFact">
-            <div class="txt">
-                <h3>Here's a  useless fact. It's useless but you'll read it 😂</h3>
-                <% if(funFact){ %>
-                    <h4><%= funFact %></h4>
-                <% } %>
-            </div>
-        </section>
-        <section class="hero">
-            <h1>Unwind With Adeosun</h1>
-            <p>Laugh, Play, Share &mdash; All Anonimously </p>
-        </section>
-        <section class="links">
-            <div class="quickLink"><a href="/community">
-                <div class="linkBg"></div>
-                <div class="linkTxt">
-                    <p>Community</p>
-                </div>
-            </a></div>
-            <div class="quickLink"><a href="/jokes">
-                <div class="linkBg"></div>
-                <div class="linkTxt">
-                    <p>Jokes</p>
-                </div>
-            </a></div>
-            <div class="quickLink"><a href="/games">
-                <div class="linkBg"></div>
-                <div class="linkTxt">
-                    <p>Games</p>
-                </div>
-            </a></div>
-            <div class="quickLink"><a href="/discussions">
-                <div class="linkBg"></div>
-                <div class="linkTxt">
-                    <p>Discussions</p>
-                </div>
-            </a></div>
-        </section>
-        <section class="leaderboard">
-            <h2>Leaderboard</h2>
-            <table>
-                <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Username</th>
-                    <th>Points</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% let position = 1; %>
-                <% console.log('Leaderboard in EJS:', leaderboard) %>
-                <% if(leaderboard) { %>
-                    <% leaderboard.slice(0, 15).forEach(player => { %>
-                        <tr>
-                        <td><%= position++ %></td>
-                        <td><%= player.username %></td>
-                        <td><%= player.total_points %></td>
-                        </tr>
-                    <% }) %>
-                <% } else { %>
-                    <tr>
-                        <td colspan="3">No leaderboard data available.</td>
-                    </tr>
-                <% } %>
-                </tbody>
-            </table>
-
-            <div class="view-more">
-                <a href="/leaderboard" class="btn">View Full Leaderboard</a>
-            </div>
-        </section>
-
-    </main>
+<main>
+  <% if (success_msg && success_msg.length > 0) { %>
+  <div class="flash-message success"><%= success_msg[0] %></div>
+  <% } %>
+  <section class="dailyFunFact">
+    <div class="txt">
+      <h3>Here's a useless fact. It's useless but you'll read it 😂</h3>
+      <% if(funFact){ %>
+      <h4><%= funFact %></h4>
+      <% } %>
+    </div>
+  </section>
+  <section class="hero">
+    <h1>Unwind With Adeosun</h1>
+    <p>Laugh, Play, Share &mdash; All Anonimously</p>
+  </section>
+  <section class="links">
+    <div class="quickLink">
+      <a href="/community">
+        <div class="linkBg"></div>
+        <div class="linkTxt">
+          <p>Community</p>
+        </div>
+      </a>
+    </div>
+    <div class="quickLink">
+      <a href="/jokes">
+        <div class="linkBg"></div>
+        <div class="linkTxt">
+          <p>Jokes</p>
+        </div>
+      </a>
+    </div>
+    <div class="quickLink">
+      <a href="/games">
+        <div class="linkBg"></div>
+        <div class="linkTxt">
+          <p>Games</p>
+        </div>
+      </a>
+    </div>
+    <div class="quickLink">
+      <a href="/discussions">
+        <div class="linkBg"></div>
+        <div class="linkTxt">
+          <p>Discussions</p>
+        </div>
+      </a>
+    </div>
+  </section>
+  <section class="leaderboard">
+    <h2>Leaderboard <br />(top 15)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% let position = 1; %> <% console.log('Leaderboard in EJS:',
+        leaderboard) %> <% if(leaderboard) { %> <% leaderboard.slice(0,
+        15).forEach(player => { %>
+        <tr>
+          <td><%= position++ %></td>
+          <td><%= player.username %></td>
+          <td><%= player.total_points %></td>
+        </tr>
+        <% }) %> <% } else { %>
+        <tr>
+          <td colspan="3">No leaderboard data available.</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </section>
+</main>
 <%- include("partials/footer") %>

@@ -1,0 +1,28 @@
+<%- include("partials/header") %>
+<section class="anagram-game">
+  <h1>Word Anagram Game</h1>
+  <div id="start-screen">
+    <button id="start-btn">Start Game</button>
+  </div>
+  <div id="game-area" class="hidden">
+    <div class="hud">
+      <p id="timer"> Time left: 3:00</p>
+      <p>Score: <span id="score">0</span></p>
+    </div>
+    <p>Unscramble this word:</p>
+    <h2 id="scrambled-word" class="bounce"></h2>
+    <p><strong>Hint:</strong> <span id="word-hint"></span></p>
+    <input type="text" id="guess" placeholder="Your guess" autocomplete="off" />
+    <button id="submit-btn">Submit</button>
+    <p id="feedback"></p>
+  </div>
+  <div id="popup" class="popup hidden">
+    <div class="popup-card">
+        <h2>⏰ Time’s Up!</h2>
+        <p id="final-score"></p>
+        <button onclick="location.reload()">Play Again</button>
+    </div>
+ </div>
+</section>
+<script src="/anagram.js"></script>
+<%- include("partials/footer") %>

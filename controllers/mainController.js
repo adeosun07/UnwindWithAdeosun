@@ -40,13 +40,33 @@ export default {
       const result = await pool.query(
         "SELECT * FROM emoji_riddles ORDER BY RANDOM()"
       );
-      res.json(result.rows); // Send all riddles shuffled
+      res.json(result.rows); 
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: "Server error" });
     }
   },
   emoji_riddle: (req, res) => {
-    res.render("emoji-riddle"); // EJS page
+    res.render("emoji-riddle"); 
+  },
+  quiz: (req, res) => {
+    res.render("quiz"); 
+  },
+  normal_riddle: (req,res) =>{
+    res.render("normal-riddle")
+  },
+  get_normal_riddle: async (req,res) =>{
+    try {
+      const result = await axios.get("https://opentdb.com/api.php?amount=20&type=multiple");
+      res.json(result.data);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  rps: (req, res) => {
+    res.render("rps"); 
+  },
+  anagram: (req, res) => {
+    res.render("word-anagram");
   },
 };

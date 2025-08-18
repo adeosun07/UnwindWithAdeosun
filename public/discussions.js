@@ -1,4 +1,3 @@
-// Handle starting a new discussion
 document.getElementById("start-discussion-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -17,7 +16,6 @@ document.getElementById("start-discussion-form").addEventListener("submit", asyn
     const data = await res.json();
 
     if (data.success) {
-      // Reload page to show new discussion
       location.reload();
     } else {
       alert(data.error || "Error starting discussion");
@@ -27,7 +25,6 @@ document.getElementById("start-discussion-form").addEventListener("submit", asyn
   }
 });
 
-// Handle replies
 document.querySelectorAll(".reply-form").forEach(form => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();

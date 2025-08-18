@@ -17,9 +17,12 @@ router.get("/joke/next", getJoke);
 router.get('/community', ensureAuthenticated, mainController.communityPage);
 router.get('/about', mainController.about);
 router.get("/games", ensureAuthenticated, mainController.games);
+router.get("/quiz", mainController.quiz);
+router.get("/normal-riddle", mainController.normal_riddle);
+router.get("/rps", ensureAuthenticated, mainController.rps);
+router.get("/word-anagram", mainController.anagram);
 
 router.post("/signup", authController.signup);
 router.post("/login", authController.login);
-
 
 export default router;

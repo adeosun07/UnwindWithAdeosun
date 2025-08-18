@@ -8,13 +8,16 @@ body {
   line-height: 1.6;
   overflow-x: none;
 }
+main{
+  padding: 5px;
+}
 
 header {
   background-color: #ecf0f1;
-  padding: 10px 20px;
   font-family: Arial, sans-serif;
   position: relative;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5px;
 }
 
 nav ul {
@@ -27,14 +30,11 @@ nav ul {
   position: relative;
   z-index: 5;
 }
-
-/* Signup left */
 nav ul li.signup {
   position: fixed;
   top: 15px;
   left: 20px;
 }
-
 nav ul li.signup a {
   color: #18bc9c;
   font-weight: 700;
@@ -43,19 +43,15 @@ nav ul li.signup a {
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
-
 nav ul li.signup a:hover {
   background-color: #18bc9c;
   color: white;
 }
-
-/* Login right */
 nav ul li.login {
   position: fixed;
   top: 15px;
   right: 20px;
 }
-
 nav ul li.login a {
   color: #e74c3c;
   font-weight: 700;
@@ -64,13 +60,10 @@ nav ul li.login a {
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
-
 nav ul li.login a:hover {
   background-color: #e74c3c;
   color: white;
 }
-
-/* Menu centered */
 nav ul li.menu {
   cursor: pointer;
   font-weight: 600;
@@ -80,8 +73,6 @@ nav ul li.menu {
   user-select: none;
   font-size: 1.2rem;
 }
-
-/* Menu list hidden by default */
 .menuList {
   display: none;
   position: absolute;
@@ -95,8 +86,6 @@ nav ul li.menu {
   z-index: 100;
   padding: 5px 0;
 }
-
-/* Menu list items */
 .menuList li {
   list-style: none;
   padding: 8px 20px;
@@ -112,7 +101,6 @@ nav ul li.menu {
   font-weight: 600;
   transition: background-color 0.3s ease;
 }
-
 .menuList li a:hover {
   background-color: #18bc9c;
   color: #2c3e50;
@@ -124,15 +112,12 @@ nav ul li.menu {
   color: #ecf0f1;
   padding: 80px 20px;
   text-align: center;
-  /* border-radius: 12px; */
   overflow: hidden;
   min-height: 280px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-/* Dark overlay */
 .dailyFunFact::before {
   content: "";
   position: absolute;
@@ -141,36 +126,29 @@ nav ul li.menu {
   z-index: 1;
   border-radius: 12px;
 }
-
-/* Text container above overlay */
 .dailyFunFact .txt {
   position: relative;
   z-index: 2;
   max-width: 700px;
 }
-
 .dailyFunFact h3 {
   font-size: 2.4rem;
   margin-bottom: 0.5em;
   font-weight: 700;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
 }
-
 .dailyFunFact h4 {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.4;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-/* HERO section */
 .hero {
   background-color: #2c3e50;
   color: #ecf0f1;
   padding: 70px 20px;
   text-align: center;
 }
-
 .hero h1 {
   font-size: 3.6rem;
   font-weight: 900;
@@ -178,7 +156,6 @@ nav ul li.menu {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
   animation: bounce 2s infinite ease-in-out;
 }
-
 .hero p {
   font-size: 1.6rem;
   font-style: italic;
@@ -194,27 +171,6 @@ nav ul li.menu {
     transform: translateY(-15px);
   }
 }
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .dailyFunFact {
-    padding: 60px 15px;
-    min-height: 220px;
-  }
-  .dailyFunFact h3 {
-    font-size: 1.9rem;
-  }
-  .dailyFunFact h4 {
-    font-size: 1.1rem;
-  }
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .hero p {
-    font-size: 1.3rem;
-  }
-}
-
 .links {
   display: flex;
   flex-wrap: wrap;
@@ -222,7 +178,6 @@ nav ul li.menu {
   justify-content: center;
   padding: 20px;
 }
-
 .quickLink {
   position: relative;
   flex: 1 1 100%;
@@ -233,7 +188,6 @@ nav ul li.menu {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease;
 }
-
 .quickLink a {
   display: block;
   height: 100%;
@@ -241,8 +195,6 @@ nav ul li.menu {
   text-decoration: none;
   position: relative;
 }
-
-/* Background image container */
 .linkBg,.jokeBg {
   width: 100%;
   height: 200px;
@@ -251,15 +203,13 @@ nav ul li.menu {
   background-repeat: no-repeat;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
-
-/* Text overlay at bottom */
 .linkTxt {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 12px 15px;
-  background: rgba(24, 188, 156, 0.8); /* semi-transparent teal */
+  background: rgba(24, 188, 156, 0.8); 
   color: #ecf0f1;
   font-weight: 700;
   font-size: 1.2rem;
@@ -269,45 +219,34 @@ nav ul li.menu {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
-/* Hover effects */
 .quickLink:hover .linkBg, .quickLink:hover .jokeBg {
   transform: scale(1.05);
   filter: brightness(0.85);
 }
-
 .quickLink:hover .linkTxt {
-  background: rgba(24, 188, 156, 1); /* full teal on hover */
+  background: rgba(24, 188, 156, 1); 
 }
-
-/* Background images assigned by nth-child */
 .quickLink:nth-child(1) .linkBg {
   background-image: url("/images/community-image.png");
 }
-
 .quickLink:nth-child(2) .linkBg {
   background-image: url("/images/jokes-image.png");
 }
-
 .quickLink:nth-child(3) .linkBg {
   background-image: url("/images/games-image.png");
 }
-
 .quickLink:nth-child(4) .linkBg {
   background-image: url("/images/discussions-image.png");
 }
 .quickLink:nth-child(1) .jokeBg {
   background-image: url("/images/quiz.jpg");
 }
-
 .quickLink:nth-child(2) .jokeBg {
   background-image: url("/images/rps.jpg");
 }
-
 .quickLink:nth-child(3) .jokeBg {
   background-image: url("/images/normal-riddle.jpg");
 }
-
 .quickLink:nth-child(4) .jokeBg {
   background-image: url("/images/emoji-riddle.jpg");
 }
@@ -324,23 +263,13 @@ nav ul li.menu {
     transform: translateY(0);
   }
 }
-
 .quickLink {
   opacity: 0;
   transform: translateY(30px);
 }
-
 .quickLink.animate-slide-up {
   animation: slideUp 0.9s ease-out forwards;
 }
-
-/* Responsive: two per row on screens ≥ 768px */
-@media (min-width: 768px) {
-  .quickLink {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-
 .leaderboard {
   max-width: 700px;
   margin: 40px auto;
@@ -351,16 +280,14 @@ nav ul li.menu {
   font-family: Arial, sans-serif;
   color: #2c3e50;
 }
-
 .leaderboard h2 {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #18bc9c;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
-
 .leaderboard table {
   width: 100%;
   border-collapse: collapse;
@@ -368,12 +295,10 @@ nav ul li.menu {
   border-radius: 8px;
   overflow: hidden;
 }
-
 .leaderboard thead {
   background-color: #18bc9c;
   color: #ecf0f1;
 }
-
 .leaderboard thead th {
   padding: 12px 15px;
   text-align: left;
@@ -381,50 +306,24 @@ nav ul li.menu {
   font-size: 1.1rem;
   user-select: none;
 }
-
 .leaderboard tbody tr {
   border-bottom: 1px solid #ccc;
   transition: background-color 0.3s ease;
   cursor: default;
 }
-
 .leaderboard tbody tr:hover {
   background-color: #d1f2eb;
 }
-
 .leaderboard tbody td {
   padding: 12px 15px;
   font-size: 1rem;
 }
-
 .leaderboard tbody tr:last-child {
   border-bottom: none;
 }
-
-.view-more {
-  text-align: center;
-  margin-top: 25px;
-}
-
-.view-more .btn {
-  background-color: #18bc9c;
-  color: #ecf0f1;
-  padding: 12px 28px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border-radius: 25px;
-  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  display: inline-block;
-}
-.view-more .btn:hover {
-  background-color: #149174;
-  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
-}
 footer {
-  background-color: #2c3e50; /* dark blue */
-  color: #ecf0f1; /* light gray */
+  background-color: #2c3e50; 
+  color: #ecf0f1;
   padding: 30px 20px;
   font-family: Arial, sans-serif;
   text-align: center;
@@ -464,17 +363,6 @@ footer {
   box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
   outline: none;
 }
-
-/* Make buttons horizontal on wider screens */
-@media (min-width: 600px) {
-  .support-buttons {
-    flex-direction: row;
-  }
-  .support-buttons a {
-    flex: 1 1 45%;
-    text-align: center;
-  }
-}
 .copyright p {
   font-size: 0.9rem;
   color: #bdc3c7;
@@ -482,7 +370,6 @@ footer {
 }
 
 /* login/signup form */
-/* Auth Form Container */
 .authForm {
   max-width: 400px;
   margin: 2rem auto;
@@ -514,14 +401,11 @@ footer {
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
-
-/* Hidden state for fade/slide */
 .flash-message.hide {
   opacity: 0;
   transform: translateY(-10px);
 }
 
-/* Inputs & Button */
 .authForm label {
   display: block;
   margin-top: 1rem;
@@ -574,15 +458,12 @@ footer {
 /* community */
 .community-title, .games-title {
   text-align: center;
-  margin: 20px 0;
   font-size: 2rem;
 }
-
 .tabs {
   text-align: center;
-  margin-bottom: 15px;
+  margin: 15px auto;
 }
-
 .tab-btn {
   padding: 10px 15px;
   margin: 0 5px;
@@ -591,20 +472,16 @@ footer {
   cursor: pointer;
   border-radius: 5px;
 }
-
 .tab-btn.active {
   background: #18bc9c;
   color: #fff;
 }
-
 .card-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  /* gap: 5px; */
 }
-
 .card {
   background: #f9f9f9;
   padding: 20px;
@@ -614,7 +491,6 @@ footer {
   border-radius: 10px;
   text-align: center;
 }
-
 .nav-btn {
   background: none;
   border: none;
@@ -629,40 +505,45 @@ footer {
   margin: 5px;
   margin-bottom: 20px;
 }
-
 #shoutout-form textarea {
   width: 80%;
   min-height: 80px;
   margin-bottom: 10px;
   padding: 10px;
 }
-
 button[type="submit"] {
-  background: #18bc9c;
-  color: white;
   padding: 8px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 7px;
+  font-size: 16px;
+  color: #2c3e50;
+  background-color: #18bc9c;
+  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+button[type="submit"]:hover{
+  background-color: #149174;
+  color: #ecf0f1;
+  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
+  outline: none;
+}
+
+/* Discussion */
 .discussion-container {
   max-width: 800px;
   margin: auto;
   padding: 20px;
 }
-
-/* Header */
 .discussion-header h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
 }
-
-/* Discussion list */
 .discussion-list {
   margin-bottom: 30px;
 }
-
 .discussion-item {
   background: #f9f9f9;
   border-radius: 8px;
@@ -670,27 +551,21 @@ button[type="submit"] {
   padding: 10px;
   border: 1px solid #ddd;
 }
-
 .discussion-title {
   font-weight: bold;
   cursor: pointer;
   font-size: 1.1rem;
   color: #444;
 }
-
-/* Messages */
 .messages {
   margin: 10px 0;
   padding-left: 10px;
   border-left: 3px solid #ccc;
 }
-
 .message {
   padding: 6px 0;
   color: #555;
 }
-
-/* Forms */
 textarea,
 input[type="text"] {
   width: 100%;
@@ -701,97 +576,63 @@ input[type="text"] {
   border: 1px solid #ccc;
   font-size: 1rem;
 }
-
 .reply-form {
   margin-top: 10px;
 }
-
-/* Start discussion section */
 #start-discussion {
   background: #eef4ff;
   padding: 15px;
   border-radius: 8px;
   border: 1px solid #ccdfff;
 }
-
 #start-discussion h3 {
   margin-bottom: 10px;
   font-size: 1.4rem;
   color: #333;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .discussion-container {
-    padding: 10px;
-  }
-  .discussion-header h2 {
-    font-size: 1.5rem;
-  }
-}
-
 /* About page */
 .about-me {
-  /* background: linear-gradient(135deg, #1b1f24, #20262e); */
   border-radius: 1rem;
   padding: 2rem;
   margin: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
-
-/* Titles */
 .about-me-title h1 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: #2c3e50; /* Updated as requested */
+  color: #2c3e50;
   border-left: 4px solid #2c3e50;
   padding-left: 0.75rem;
 }
-
-/* Paragraph text */
 .about-app-txt p,
 .about-me-txt p {
   line-height: 1.6;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-
-/* Bold emphasis */
 .about-app-txt p strong,
 .about-me-txt p strong {
   color: #2c3e50;
   font-weight: 900;
 }
-
-/* Lists */
 .about-me-txt ul {
   list-style: none;
   padding: 0;
   margin-bottom: 1rem;
 }
-
 .about-me-txt ul li {
   padding: 0.4rem 0;
   border-bottom: 1px solid #2c3e50;
   width: fit-content;
 }
-
-/* Links */
 .about-me-txt a {
   color: #3498db;
   text-decoration: none;
   font-weight: 600;
 }
-
 .about-me-txt a:hover {
   text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .about-me-title h1 {
-    font-size: 1.4rem;
-  }
 }
 
 /* Joke page */
@@ -801,13 +642,11 @@ input[type="text"] {
   padding: 0 1rem;
   text-align: center;
 }
-
 .joke-title {
   color: #2C3E50;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
 }
-
 .joke-card {
   background: #ffffff;
   padding: 2rem;
@@ -818,15 +657,13 @@ input[type="text"] {
   flex-direction: column;
   justify-content: space-between;
 }
-
 #joke-text {
   font-size: 1.1rem;
   color: #34495E;
   margin-bottom: 1.5rem;
   line-height: 1.6;
 }
-
-#next-btn {
+#next-btn{
   background-color: #18bc9c;
   color: #2c3e50;
   border: none;
@@ -837,25 +674,341 @@ input[type="text"] {
   box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 #next-btn:hover {
   background-color: #149174;
   color: #ecf0f1;
   box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
 }
 
-/* Mobile responsiveness */
+/* emoji-riddles */
+.emoji-riddle {
+  max-width: 560px;
+  margin: 4rem auto;
+  padding: 1.5rem;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px #1f252b;
+}
+.emoji-riddle button, #start-btn {
+  cursor: pointer;
+  border: 0;
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: #2c3e50;
+  background-color: #18bc9c;
+  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.emoji-riddle button:hover, #start-btn:hover { 
+  background-color: #149174;
+  color: #ecf0f1;
+  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
+  outline: none;
+}
+.emoji-riddle .hidden { display: none; }
+.emoji-riddle .hud {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.emoji-riddle .riddle {
+  display: grid;
+  gap: 0.75rem;
+}
+.emoji {
+  font-size: 3rem;
+  text-align: center;
+  margin: 0.5rem 0 0.75rem;
+}
+.emoji-riddle input[type="text"] {
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: #0b1222;
+  color: #e2e8f0;
+  outline: none;
+}
+.emoji-riddle input[type="text"]::placeholder { color: #64748b; }
+
+/* continuation for normal riddles */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.8);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+}
+.modal .modal-content {
+  background: #0b1222;
+  color: #e2e8f0;
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: min(90vw, 420px);
+  text-align: center;
+  border: 1px solid #334155;
+}
+.modal .modal-content button {
+  margin-top: 1rem;
+  background: #60a5fa;
+  color: #0a0f1f;
+}
+
+/* Quiz */
+.quiz-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #2c3e50; 
+  color: #ecf0f1;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px #1f252b;
+  text-align: center;
+}
+#answers {
+  list-style: none;
+  padding: 0;
+}
+#answers li {
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #2c3e50;
+  background-color: #18bc9c;
+  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#answers li:hover {
+  background-color: #149174;
+  color: #ecf0f1;
+  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
+  outline: none;
+}
+#next-btn:disabled {
+  cursor: not-allowed;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popup.hidden {
+  display: none;
+}
+.popup-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+}
+.popup-content h2 {
+  margin-bottom: 1rem;
+}
+.popup-content button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Rock Paper Scissors Section */
+.rps {
+  max-width: 650px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #1f2937;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.4);
+  text-align: center;
+  color: #f9fafb;
+}
+.rps h1 {
+  font-size: 2rem;
+  text-shadow: 0 2px 6px rgba(0,0,0,.6);
+}
+
+#start-screen button,
+#reset-btn,
+.player-choice, .anagram-game button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2c3e50;
+  background-color: #18bc9c;
+  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+#start-screen button:hover,
+#reset-btn:hover,
+.player-choice:hover, .anagram-game button:hover {
+  background-color: #149174;
+  color: #ecf0f1;
+  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
+  outline: none;
+}
+.choices {
+  margin: 0.5rem 0;
+}
+.choices button {
+  min-width: 100px;
+}
+#computer-choice-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: 0.5rem auto 1rem;
+  border-radius: 12px;
+  background: #374151;
+  padding: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,.5);
+}
+#result {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #f9fafb;
+}
+.scoreboard {
+  margin: 0.2rem 0;
+  background: #111827;
+  padding: 0.1rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  color: #e5e7eb;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.4);
+}
+
+/* Anagram game */
+.anagram-game {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  background: #1e293b;
+  border-radius: 16px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+.anagram-game h1 {
+  margin-bottom: 1rem;
+}
+.anagram-game #start-screen{
+  margin: 3px auto;
+}
+#scrambled-word {
+  font-size: 2.2rem;
+  margin: 1rem 0;
+  color: #38bdf8;
+}
+.bounce {
+  animation: bounce 1s infinite alternate;
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+.popup-card {
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+.popup-card h2 {
+  margin-bottom: 1rem;
+}
+.popup-card button {
+  background: #38bdf8;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #0f172a;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  .dailyFunFact {
+    padding: 60px 15px;
+    min-height: 220px;
+  }
+  .dailyFunFact h3 {
+    font-size: 1.9rem;
+  }
+  .dailyFunFact h4 {
+    font-size: 1.1rem;
+  }
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.3rem;
+  }
+  .quickLink {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .discussion-container {
+    padding: 10px;
+  }
+  .discussion-header h2 {
+    font-size: 1.5rem;
+  }
+  .about-me-title h1 {
+    font-size: 1.4rem;
+  }
+}
 @media (max-width: 480px) {
+  .about-me{
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
   .joke-card {
     padding: 1.5rem;
   }
-
+  #start-screen button,
+  #reset-btn,
+  .player-choice, .anagram-game button {
+    padding: 0.5rem 0.5rem;
+    margin: 3px;
+  }
   .joke-title {
     font-size: 1.5rem;
   }
-
   #joke-text {
     font-size: 1rem;
+  }
+  .emoji-riddle,.rps,.anagram-game {
+  max-width: 350px;
+  }
+  .anagram-game{
+    padding: 1rem;
+  }
+  .rps h1{
+    font-size: 1.4rem;
+  }
+  .rps{
+    margin: 2rem auto;
   }
 }
 @media (max-width: 400px) {
@@ -884,94 +1037,16 @@ input[type="text"] {
   .discussion-header h1 {
     font-size: 1.5rem;
   }
+  .emoji-riddle,.rps,.anagram-game {
+  max-width: 300px;
+  }
 }
-
-/* emoji-riddles */
-/* public/css/style.css */
-.emoji-riddle {
-  max-width: 560px;
-  margin: 4rem auto;
-  padding: 1.5rem;
-  background-color: #2c3e50; /* dark blue */
-  color: #ecf0f1; /* light gray */
-  border-radius: 16px;
-  box-shadow: 0 10px 30px #1f252b;
-}
-
-.emoji-riddle h1 { margin-top: 0; }
-
-.emoji-riddle button {
-  cursor: pointer;
-  border: 0;
-  padding: 0.7rem 1rem;
-  border-radius: 12px;
-  font-weight: 600;
-  color: #2c3e50;
-  background-color: #18bc9c;
-  box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.emoji-riddle button:hover { 
-  background-color: #149174;
-  color: #ecf0f1;
-  box-shadow: 0 6px 15px rgba(20, 145, 116, 0.7);
-  outline: none;
-}
-
-.emoji-riddle .hidden { display: none; }
-
-.emoji-riddle .hud {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
-
-.emoji-riddle .riddle {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.emoji {
-  font-size: 3rem;
-  text-align: center;
-  margin: 0.5rem 0 0.75rem;
-}
-
-.emoji-riddle input[type="text"] {
-  padding: 0.7rem 0.9rem;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  background: #0b1222;
-  color: #e2e8f0;
-  outline: none;
-}
-
-.emoji-riddle input[type="text"]::placeholder { color: #64748b; }
-
-/* Modal */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(2, 6, 23, 0.8);
-  display: grid;
-  place-items: center;
-  z-index: 50;
-}
-
-.modal .modal-content {
-  background: #0b1222;
-  color: #e2e8f0;
-  padding: 1.5rem;
-  border-radius: 16px;
-  width: min(90vw, 420px);
-  text-align: center;
-  border: 1px solid #334155;
-}
-
-.modal .modal-content button {
-  margin-top: 1rem;
-  background: #60a5fa;
-  color: #0a0f1f;
+@media (min-width: 600px) {
+  .support-buttons {
+    flex-direction: row;
+  }
+  .support-buttons a {
+    flex: 1 1 45%;
+    text-align: center;
+  }
 }

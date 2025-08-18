@@ -3,11 +3,15 @@ import router from './routes/index.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
+import quizRouter from "./routes/quiz.js";
+import scoreRoutes from "./routes/score.js";
 
 import communityRoutes from "./routes/community.js";
 import discussionsRouter from "./routes/discussions.js";
 import { deleteOldDiscussions } from "./cleanup.js";
 import emojiRoutes from "./routes/emoji-riddle.js";
+import normalRoutes from "./routes/normal-riddles.js";
+import anagramRouter from "./routes/anagram.js";
 
 import session from 'express-session';
 import passport from 'passport';
@@ -56,13 +60,15 @@ export function ensureAuthenticated(req, res, next) {
 app.use("/api/community", communityRoutes);
 app.use("/discussions", discussionsRouter);
 app.use("/emoji-riddle", emojiRoutes);
+app.use("/normal-riddle", normalRoutes);
+app.use("/quiz", quizRouter);
+app.use("/scores", scoreRoutes);
+app.use("/word-anagram", anagramRouter);
 
-// Cleanup: run on startup and every 24 hours
 deleteOldDiscussions();
 setInterval(deleteOldDiscussions, 24 * 60 * 60 * 1000);
 
-app.use('/', router);
-
+app.use('/', router); 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });

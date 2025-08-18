@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+<main>
+  <section class="rps">
+    <h1>Rock Paper Scissors</h1>
+    <div id="start-screen">
+      <button id="start-btn">Start Game</button>
+    </div>
+    <div id="game-area" class="hidden">
+      <div>
+        <h3>Computer's Choice</h3>
+        <img
+          id="computer-choice-img"
+          src="/images/rock.jpg"
+          alt="Computer choice"
+        />
+      </div>
+      <div id="result">Make your move!</div>
+      <div class="choices">
+        <button class="player-choice" data-choice="rock">Rock</button>
+        <button class="player-choice" data-choice="paper">Paper</button>
+        <button class="player-choice" data-choice="scissors">Scissors</button>
+      </div>
+      <div class="scoreboard">
+        <p>Player: <span id="player-score">0</span></p>
+        <p>Computer: <span id="computer-score">0</span></p>
+      </div>
+      <button id="reset-btn">Reset</button>
+    </div>
+  </section>
+</main>
+
+<script src="/rps.js"></script>
+<%- include("partials/footer") %>

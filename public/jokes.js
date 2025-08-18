@@ -16,6 +16,4 @@ async function fetchJoke() {
 }
 
 document.getElementById("next-btn").addEventListener("click", fetchJoke);
-
-// Load first joke
 fetchJoke();

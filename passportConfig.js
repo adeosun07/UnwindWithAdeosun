@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import passport from "passport";
 import { Strategy } from "passport-local";
-import pool from "./db.js"; // Assuming you have a db.js file for database connection
+import pool from "./db.js";
 
 export default function initializePassport() {
     passport.use(new Strategy( 
