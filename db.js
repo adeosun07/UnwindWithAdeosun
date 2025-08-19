@@ -6,7 +6,10 @@ dotenv.config();
 const { Pool } = pkg;
 
 const pool = new Pool({
-  connectionString: process.env.databaseURL
+  connectionString: process.env.databaseURL,
+  ssl: {
+    rejectUnauthorized: false,
+  }
 });
 
 export default pool;
