@@ -84,7 +84,7 @@ const endGame = () => {
     msg = " at this point, you gotta rethink your life choices, cause wtf😐";
   } else if (score > 3 && score < 5) {
     msg = "I knew you were not that smart, but fairs, i'll allow";
-  } else if (score > 5 && score < 10) {
+  } else if (score >= 5 && score < 10) {
     msg = "not bad, but try again let's see the real you";
   } else if (score > 10) {
     msg = "OG 💀 <br> I hail oo";

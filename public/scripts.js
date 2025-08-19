@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(() => {
               msg.style.display = 'none';
           }, 500);
-      }, 5000);
+      }, 1000);
   });
 
   const quickLinks = document.querySelectorAll(".quickLink");

@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 <main>
   <% if (success_msg && success_msg.length > 0) { %>
-  <div class="flash-message success"><%= success_msg[0] %></div>
+  <div class="flash-message success" style="position: fixed; top: 51px; width: 100%; z-index: 100000;"><%= success_msg[0] %></div>
   <% } %>
   <section class="dailyFunFact">
     <div class="txt">

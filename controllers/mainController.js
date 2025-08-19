@@ -57,7 +57,7 @@ export default {
   },
   get_normal_riddle: async (req,res) =>{
     try {
-      const result = await axios.get("https://opentdb.com/api.php?amount=20&type=multiple");
+      const result = await axios.get("https://opentdb.com/api.php?amount=30&type=multiple");
       res.json(result.data);
     } catch (error) {
       console.log(error);
