@@ -460,6 +460,15 @@ footer {
   text-align: center;
   font-size: 2rem;
 }
+.community-intro {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+  color: #090601;
+  font-size: 1rem;
+}
+
 .tabs {
   text-align: center;
   margin: 15px auto;
@@ -471,6 +480,8 @@ footer {
   background: #ddd;
   cursor: pointer;
   border-radius: 5px;
+  color: #090601;
+  font-size: 1rem;
 }
 .tab-btn.active {
   background: #18bc9c;
@@ -517,7 +528,7 @@ button[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   margin-bottom: 7px;
-  font-size: 16px;
+  font-size: 1rem;
   color: #2c3e50;
   background-color: #18bc9c;
   box-shadow: 0 4px 10px rgba(24, 188, 156, 0.5);
@@ -535,6 +546,11 @@ button[type="submit"]:hover{
   max-width: 800px;
   margin: auto;
   padding: 20px;
+}
+.discussion-header p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
 }
 .discussion-header h1 {
   text-align: center;
@@ -767,6 +783,9 @@ input[type="text"] {
   border-radius: 16px;
   box-shadow: 0 10px 30px #1f252b;
   text-align: center;
+}
+.quiz-section #start-btn{
+  font-size: 1rem;
 }
 #answers {
   list-style: none;

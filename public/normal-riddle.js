@@ -1,24 +1,28 @@
-const startBtn     = document.getElementById("start-btn");
-const gameScreen   = document.getElementById("game-screen");
-const startScreen  = document.getElementById("start-screen");
-const emojiEl      = document.getElementById("emoji");
-const optionsDiv   = document.getElementById("options");
-const submitBtn    = document.getElementById("submit-btn");
-const scoreEl      = document.getElementById("score");
-const timeEl       = document.getElementById("time");
-const modal        = document.getElementById("result-popup");
+const startBtn = document.getElementById("start-btn");
+const gameScreen = document.getElementById("game-screen");
+const startScreen = document.getElementById("start-screen");
+const emojiEl = document.getElementById("emoji");
+const optionsDiv = document.getElementById("options");
+const submitBtn = document.getElementById("submit-btn");
+const scoreEl = document.getElementById("score");
+const timeEl = document.getElementById("time");
+const modal = document.getElementById("result-popup");
 const finalScoreEl = document.getElementById("final-score");
-const finalMsgEl   = document.getElementById("final-message");
-const restartBtn   = document.getElementById("restart-btn");
+const finalMsgEl = document.getElementById("final-message");
+const restartBtn = document.getElementById("restart-btn");
 
 let riddles = [];
 let index = 0;
 let score = 0;
-let timeLeft = 120; 
+let timeLeft = 120;
 let timerId = null;
 
-
-const clean = (s) => (s || "").toString().replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+const clean = (s) =>
+  (s || "")
+    .toString()
+    .replace(/\s+/g, "") // remove all whitespace
+    .replace(/[^a-zA-Z0-9]/g, "") // remove non-alphanumeric
+    .toLowerCase();
 
 const formatTime = (t) => {
   const m = Math.floor(t / 60);
@@ -59,7 +63,7 @@ const loadRiddle = () => {
 
 const submitAnswer = () => {
   const selected = document.querySelector("input[name='answer']:checked");
-  if (!selected) return; 
+  if (!selected) return;
 
   const user = clean(selected.value);
   const correct = clean(riddles[index].correct_answer);
@@ -74,7 +78,7 @@ const submitAnswer = () => {
 };
 
 const endGame = () => {
-  optionsDiv.querySelectorAll("input").forEach(i => (i.disabled = true));
+  optionsDiv.querySelectorAll("input").forEach((i) => (i.disabled = true));
   submitBtn.disabled = true;
 
   finalScoreEl.textContent = score;
@@ -125,13 +129,12 @@ const restart = () => {
   startScreen.classList.remove("hidden");
 };
 
-
 startBtn.addEventListener("click", async () => {
   try {
     const res = await axios.get("/normal-riddle/api/riddles");
     const response = res.data || [];
 
-    riddles = (response.results || []).map(r => {
+    riddles = (response.results || []).map((r) => {
       const options = [...r.incorrect_answers, r.correct_answer];
 
       for (let i = options.length - 1; i > 0; i--) {
@@ -142,7 +145,7 @@ startBtn.addEventListener("click", async () => {
       return {
         question: r.question,
         correct_answer: r.correct_answer,
-        options
+        options,
       };
     });
 
@@ -157,7 +160,6 @@ startBtn.addEventListener("click", async () => {
   startTimer();
   loadRiddle();
 });
-
 
 submitBtn.addEventListener("click", submitAnswer);
 document.addEventListener("keydown", (e) => {

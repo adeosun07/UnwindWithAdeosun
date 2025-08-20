@@ -1,16 +1,15 @@
-const startBtn     = document.getElementById("start-btn");
-const gameScreen   = document.getElementById("game-screen");
-const startScreen  = document.getElementById("start-screen");
-const emojiEl      = document.getElementById("emoji");
-const answerEl     = document.getElementById("answer");
-const submitBtn    = document.getElementById("submit-btn");
-const scoreEl      = document.getElementById("score");
-const timeEl       = document.getElementById("time");
-const modal        = document.getElementById("result-popup");
+const startBtn = document.getElementById("start-btn");
+const gameScreen = document.getElementById("game-screen");
+const startScreen = document.getElementById("start-screen");
+const emojiEl = document.getElementById("emoji");
+const answerEl = document.getElementById("answer");
+const submitBtn = document.getElementById("submit-btn");
+const scoreEl = document.getElementById("score");
+const timeEl = document.getElementById("time");
+const modal = document.getElementById("result-popup");
 const finalScoreEl = document.getElementById("final-score");
-const finalMsgEl   = document.getElementById("final-message");
-const restartBtn   = document.getElementById("restart-btn");
-
+const finalMsgEl = document.getElementById("final-message");
+const restartBtn = document.getElementById("restart-btn");
 
 let riddles = [];
 let index = 0;
@@ -18,8 +17,12 @@ let score = 0;
 let timeLeft = 60;
 let timerId = null;
 
-
-const clean = (s) => (s || "").toString().replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+const clean = (s) =>
+  (s || "")
+    .toString()
+    .replace(/\s+/g, "") // remove all whitespace
+    .replace(/[^a-zA-Z0-9]/g, "") // remove non-alphanumeric
+    .toLowerCase();
 
 const formatTime = (t) => {
   const m = Math.floor(t / 60);
@@ -109,7 +112,6 @@ const restart = () => {
   gameScreen.classList.add("hidden");
   startScreen.classList.remove("hidden");
 };
-
 
 startBtn.addEventListener("click", async () => {
   try {
