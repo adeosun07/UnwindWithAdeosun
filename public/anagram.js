@@ -97,7 +97,7 @@ const clean = (s) =>
     .toLowerCase();
     
 function submitGuess() {
-  if (clean(guessInput) === clean(correctWord)) {
+  if (clean(guessInput) === correctWord.toLowerCase()) {
     score++;
     scoreDisplay.textContent = score;
     feedback.textContent = "Correct! 🎉";
