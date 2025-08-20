@@ -463,10 +463,8 @@ footer {
 .community-intro {
   margin-top: 5px;
   font-size: 1.1rem;
-  line-height: 1.6;
-  text-align: center;
-  color: #090601;
-  font-size: 1rem;
+  color: #555;
+  padding: 0 10px;
 }
 
 .tabs {
