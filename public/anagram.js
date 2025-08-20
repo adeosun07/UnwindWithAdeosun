@@ -89,8 +89,15 @@ async function saveScore(points) {
   }
 }
 
+const clean = (s) =>
+  (s || "")
+    .toString()
+    .replace(/\s+/g, "") // remove all whitespace
+    .replace(/[^a-zA-Z0-9]/g, "") // remove non-alphanumeric
+    .toLowerCase();
+    
 function submitGuess() {
-  if (guessInput.value.toLowerCase() === correctWord.toLowerCase()) {
+  if (clean(guessInput) === clean(correctWord)) {
     score++;
     scoreDisplay.textContent = score;
     feedback.textContent = "Correct! 🎉";
